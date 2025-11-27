@@ -1,32 +1,35 @@
 import sys
 
-if len(sys.argv) < 2:
-    print("Usage: python even_odd_count.py <num1> <num2> ...")
+# Check number of arguments
+if len(sys.argv) != 6:
+    print("Usage: python evenodd.py <n1> <n2> <n3> <n4> <n5>")
     sys.exit(1)
 
+# Script name
 script_name = sys.argv[0]
 
-try:
-    numbers = list(map(int, sys.argv[1:]))
-except:
-    numbers = []   # force else block to trigger
+# Read numbers
+n1 = int(sys.argv[1])
+n2 = int(sys.argv[2])
+n3 = int(sys.argv[3])
+n4 = int(sys.argv[4])
+n5 = int(sys.argv[5])
+
+# List of numbers
+numbers = [n1, n2, n3, n4, n5]
 
 even_count = 0
 odd_count = 0
 
-if len(numbers) > 0:
-    for n in numbers:
-        if n % 2 == 0:
-            even_count += 1
-        else:
-            odd_count += 1
-else:
-    # Default list (same style as grade program defaults)
-    numbers = [1, 2, 3, 4, 5]
+# Count even and odd numbers
+for num in numbers:
+    if num % 2 == 0:
+        even_count += 1
+    else:
+        odd_count += 1
 
-    even_count = 2   # 2, 4
-    odd_count = 3    # 1, 3, 5
-
-print("script Name:", script_name)
-print("Even Count:", even_count)
-print("Odd Count:", odd_count)
+# Display output
+print("Script Name:", script_name)
+print("Numbers Entered:", numbers)
+print("Count of Even Numbers:", even_count)
+print("Count of Odd Numbers:", odd_count)
